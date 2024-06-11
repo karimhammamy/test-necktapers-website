@@ -717,7 +717,31 @@ $('body').on('click touchstart', function ()  {var videoElement = document.getEl
      <!-- footer social media icons animation -->	
      <script src="./assets/js/footer-social-media-icons.js"></script>
 
-     
+     <script>
+        Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+          get: function () {
+          return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+          }
+        });
+        
+        document.body.addEventListener("click", playVideoOnLowPower);
+        document.body.addEventListener("touchstart", playVideoOnLowPower);
+      
+        function playVideoOnLowPower(){
+          try{
+          const videoElements = document.querySelectorAll("video");
+          for (i = 0; i < videoElements.length; i++) {
+            if (videoElements[i].playing) {
+            } else {
+            videoElements[i].play();
+            }
+          }
+          }
+          catch(err) {
+          console.log(err);
+          }
+        }
+    </script>
 
     </body>
 </html>
