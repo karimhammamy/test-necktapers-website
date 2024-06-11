@@ -15,8 +15,7 @@ var promise = sliderBackgroundVideo.play();
   }
 
 function autoplay(){
-  sliderBackgroundVideo.play();
   sliderBackgroundVideo.style.display = "inline";
+  sliderBackgroundVideo.play();
 }
-window.onload = autoplay;
 window.ontouchstart = autoplay;
