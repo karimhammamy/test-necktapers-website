@@ -1,10 +1,11 @@
-sliderBackgroundVideo = document.getElementById("slider-background-video");
-function checkVideoStatus(){
-  if(sliderBackgroundVideo.paused =true){
+ sliderBackgroundVideo = document.getElementById("slider-background-video");
+  videoState = sliderBackgroundVideo.paused;
+  if(videoState = false){
+    sliderBackgroundVideo.style.display = "inline";
+  }
+  else{
     sliderBackgroundVideo.style.display = "none";
   }
-
-}
 
 function autoplay(){
   sliderBackgroundVideo.play();
