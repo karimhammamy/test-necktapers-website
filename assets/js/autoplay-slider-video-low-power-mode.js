@@ -6,10 +6,9 @@ var promise = sliderBackgroundVideo.play();
       //Show a UI element to let the user manually start playback
       if (error.name === "NotAllowedError"){
         console.log("Low Power Mode Active");
-        sliderBackgroundVideo.remove();
+            sliderBackgroundVideo.style.display = "none";
       }
     })
-    sliderBackgroundVideo.style.display = "inline";
   }
   else{
     sliderBackgroundVideo.play();
