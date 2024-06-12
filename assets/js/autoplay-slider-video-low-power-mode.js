@@ -1,4 +1,5 @@
 var sliderBackgroundVideo = document.getElementById("slider-background-video");
+var imgFallbackForVideoErrorBgContainer = document.getElementById("img-fallback-for-video-error-bg-container-id");
 var promise = sliderBackgroundVideo.play();
   if(promise !== undefined){
     promise.catch(error => {
@@ -7,18 +8,18 @@ var promise = sliderBackgroundVideo.play();
       if (error.name === "NotAllowedError"){
         console.log("Low Power Mode Active");
         //sliderBackgroundVideo.remove();
-        sliderBackgroundVideo.style.visibility = "hidden";
+        //sliderBackgroundVideo.style.visibility = "hidden";
+        imgFallbackForVideoErrorBgContainer.style.visibility = "visible";
         function autoplay(){
+          //sliderBackgroundVideo.style.visibility = "visible";
+          imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
           sliderBackgroundVideo.play();
-          sliderBackgroundVideo.style.visibility = "visible";
         }
-        //window.onload = autoplay;
         window.ontouchstart = autoplay;
       }
     })
-    //sliderBackgroundVideo.style.display = "inline";
   }
   else{
     sliderBackgroundVideo.play();
+    imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   }
-
