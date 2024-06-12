@@ -6,19 +6,19 @@ var promise = sliderBackgroundVideo.play();
       //Show a UI element to let the user manually start playback
       if (error.name === "NotAllowedError"){
         console.log("Low Power Mode Active");
-        sliderBackgroundVideo.remove();
+        //sliderBackgroundVideo.remove();
+        sliderBackgroundVideo.style.visibility = "hidden";
+        function autoplay(){
+          sliderBackgroundVideo.play();
+          sliderBackgroundVideo.style.visibility = "visible";
+        }
+        //window.onload = autoplay;
+        window.ontouchstart = autoplay;
       }
     })
-    sliderBackgroundVideo.style.display = "inline";
+    //sliderBackgroundVideo.style.display = "inline";
   }
   else{
     sliderBackgroundVideo.play();
   }
-
-function autoplay(){
-  sliderBackgroundVideo.play();
-  sliderBackgroundVideo.style.display = "inline";
-}
-window.onload = autoplay;
-window.ontouchstart = autoplay;
 
