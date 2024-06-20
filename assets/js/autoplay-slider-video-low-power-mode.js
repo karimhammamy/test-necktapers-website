@@ -14,10 +14,6 @@ var promise = sliderBackgroundVideo.play();
           //sliderBackgroundVideo.style.visibility = "visible";
           imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
           sliderBackgroundVideo.play();
-          clearTimeout(timeoutId1);
-          clearTimeout(timeoutId2);
-          clearTimeout(timeoutId3);
-          clearInterval(intervalId1);
           /*
           var timeoutId1 = setTimeout(slide1,24850);
           var timeoutId2 = setTimeout(slide2,34850);
