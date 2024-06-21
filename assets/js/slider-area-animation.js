@@ -216,7 +216,6 @@ function clickOnLeftButton(){
     }
   }
 };
-function lowPowerModeProtocole(){
   if(promise !== undefined){
     promise.catch(error => {
       //Auto-play was prevented
@@ -243,12 +242,9 @@ function lowPowerModeProtocole(){
     })
   }
   else{
-    sliderBackgroundVideo.play();
     imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   }
-};
 
-window.addEventListener('load',lowPowerModeProtocole);
 leftArrowSliderArea.addEventListener('click',clickOnLeftButton);
 rightArrowSliderArea.addEventListener('click',clickOnRightButton);
 
