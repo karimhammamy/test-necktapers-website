@@ -226,7 +226,7 @@ function autoplay(){
   setTimeout(enablePointerEvents,500);
 }
 function cancelLowPowerModeAutoplayFunction(){
-  if(sliderBackgroundVideo.paused === true){
+  if(sliderBackgroundVideo.paused === false){
     autoplay = "none";
   }
 };
