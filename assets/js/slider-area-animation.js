@@ -216,6 +216,12 @@ function clickOnLeftButton(){
     }
   }
 };
+function playVideo(){
+  sliderBackgroundVideo.play();
+};
+function playVideoOnLowPowerMode(){
+  window.ontouchstart= playVideo;
+};
   if(promise !== undefined){
     promise.catch(error => {
       //Auto-play was prevented
@@ -230,14 +236,15 @@ function clickOnLeftButton(){
         disablePointerEvents();
         function autoplay(){
             imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
-            sliderBackgroundVideo.play();
+            sliderAreaSlide1.style.visibility = "hidden";
+            setTimeout (playVideoOnLowPowerMode,0)
             setTimeout(slide1,24850);
             setTimeout(slide2,34850);
             setTimeout(slide3,44850);
             setInterval(sliderAreaBehaviorOnLoad,44850);
-            enablePointerEvents();
+            setTimeout (enablePointerEvents,500);
         }
-        setTimeout(autoplay,500);
+        setTimeout(autoplay,0)
       }
     })
   }
