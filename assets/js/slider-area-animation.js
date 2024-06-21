@@ -216,11 +216,19 @@ function clickOnLeftButton(){
     }
   }
 };
-function playVideo(){
+function autoplay(){
+  imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   sliderBackgroundVideo.play();
-};
-function playVideoOnLowPowerMode(){
-  window.ontouchstart= playVideo;
+  setTimeout(slide1,24850);
+  setTimeout(slide2,34850);
+  setTimeout(slide3,44850);
+  setInterval(sliderAreaBehaviorOnLoad,44850);
+  setTimeout(enablePointerEvents,500);
+}
+function cancelLowPowerModeAutoplayFunction(){
+  if(sliderBackgroundVideo.paused === true){
+    autoplay = "none";
+  }
 };
   if(promise !== undefined){
     promise.catch(error => {
@@ -234,17 +242,7 @@ function playVideoOnLowPowerMode(){
         clearInterval(intervalId1);
         imgFallbackForVideoErrorBgContainer.style.visibility = "visible";
         disablePointerEvents();
-        function autoplay(){
-            imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
-            sliderAreaSlide1.style.visibility = "hidden";
-            setTimeout (playVideoOnLowPowerMode,0)
-            setTimeout(slide1,24850);
-            setTimeout(slide2,34850);
-            setTimeout(slide3,44850);
-            setInterval(sliderAreaBehaviorOnLoad,44850);
-            setTimeout (enablePointerEvents,500);
-        }
-        setTimeout(autoplay,0)
+        window.ontouchstart = autoplay;
       }
     })
   }
@@ -252,8 +250,13 @@ function playVideoOnLowPowerMode(){
     imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   }
 
+  window.addEventListener('load',cancelLowPowerModeAutoplayFunction);
+  
+  
+
 leftArrowSliderArea.addEventListener('click',clickOnLeftButton);
 rightArrowSliderArea.addEventListener('click',clickOnRightButton);
+
 
 
   
