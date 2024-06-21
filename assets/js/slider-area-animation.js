@@ -231,8 +231,6 @@ function lowPowerModeProtocole(){
         disablePointerEvents();
         function autoplay(){
             imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
-            sliderAreaSlide1.style.visibility = "hidden";
-            sliderAreaSlide2.style.visibility = "hidden";
             sliderBackgroundVideo.play();
             setTimeout(slide1,24850);
             setTimeout(slide2,34850);
