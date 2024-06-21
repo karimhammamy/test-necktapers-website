@@ -235,9 +235,9 @@ function clickOnLeftButton(){
             setTimeout(slide2,34850);
             setTimeout(slide3,44850);
             setInterval(sliderAreaBehaviorOnLoad,44850);
-            setTimeout(enablePointerEvents,500);
+            enablePointerEvents();
         }
-        window.ontouchstart = autoplay;
+        setTimeout(autoplay,500);
       }
     })
   }
