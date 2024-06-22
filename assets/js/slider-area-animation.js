@@ -219,22 +219,22 @@ function clickOnLeftButton(){
 function autoplay(){
   imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   sliderBackgroundVideo.play();
-}
-function restTimerAndCancelAutoPlay(){
-  console.log("autoplay should be canceled");
-  rightArrowSliderArea.style.display = "none";
   setTimeout(slide1,24850);
   setTimeout(slide2,34850);
   setTimeout(slide3,44850);
   setInterval(sliderAreaBehaviorOnLoad,44850);
-  enablePointerEvents();
-  autoplay = "none";
+  setTimeout(enablePointerEvents,500);
 }
-function cancelLowPowerModeAutoplayFunction(){
-  if(sliderBackgroundVideo.paused == false){
-    setTimeout(restTimerAndCancelAutoPlay,500);
-  }
-};
+function cancelWindowTouchStartEvent(){
+  window.ontouchstart = "none";
+  rightArrowSliderArea.style.display = "none";
+
+}
+function delayWindowTouchStartCancelation(){
+  setTimeout(cancelWindowTouchStartEvent,500);
+}
+
+
   if(promise !== undefined){
     promise.catch(error => {
       //Auto-play was prevented
@@ -248,6 +248,7 @@ function cancelLowPowerModeAutoplayFunction(){
         imgFallbackForVideoErrorBgContainer.style.visibility = "visible";
         disablePointerEvents();
         window.ontouchstart = autoplay;
+        window.addEventListener("touchstart",delayWindowTouchStartCancelation);
       }
     })
   }
