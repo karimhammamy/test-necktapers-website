@@ -223,10 +223,10 @@ function autoplay(){
 }
 function cancelWindowTouchStartEvent(){
   window.ontouchstart = "none";
-  setTimeout(slide1,24350);
-  setTimeout(slide2,34350);
-  setTimeout(slide3,44350);
-  setInterval(sliderAreaBehaviorOnLoad,44350);
+  timeoutId1 = setTimeout(slide1,24350);
+  timeoutId2 = setTimeout(slide2,34350);
+  timeoutId3 = setTimeout(slide3,44350);
+  intervalId1 = setInterval(sliderAreaBehaviorOnLoad,44850);
 
 }
 function delayWindowTouchStartCancelation(){
