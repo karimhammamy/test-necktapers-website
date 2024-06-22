@@ -217,27 +217,21 @@ function clickOnLeftButton(){
   }
 };
 function autoplay(){
-  imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
-  sliderBackgroundVideo.play();
-  setTimeout(enablePointerEvents,500);
+  if(slideIndicator === "video"){
+    imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
+    sliderBackgroundVideo.play();
+    clearTimeout(timeoutId1);
+    clearTimeout(timeoutId2);
+    clearTimeout(timeoutId3);
+    clearInterval(intervalId1);
+    timeoutId1 = setTimeout(slide1,24850);
+    timeoutId2 = setTimeout(slide2,34850);
+    timeoutId3 = setTimeout(slide3,44850);
+    intervalId1 = setInterval(sliderAreaBehaviorOnLoad,44850);
+    setTimeout(enablePointerEvents,500);
+  }
 }
-function cancelWindowTouchStartEvent(){
-  window.ontouchstart = "none";
-  timeoutId1 = setTimeout(slide1,24350);
-  timeoutId2 = setTimeout(slide2,34600);
-  timeoutId3 = setTimeout(slide3,44850);
-  intervalId1 = setInterval(sliderAreaBehaviorOnLoad,44850);
 
-}
-function delayWindowTouchStartCancelation(){
-  setTimeout(cancelWindowTouchStartEvent,250);
-}
-function cancelDelayWindowTouchStartCancelation(){
-  delayWindowTouchStartCancelation = "none";
-}
-function delayCancelDelayWindowTouchStartCancelation(){
-  setTimeout(cancelDelayWindowTouchStartCancelation,500);
-}
 
 
   if(promise !== undefined){
@@ -253,8 +247,6 @@ function delayCancelDelayWindowTouchStartCancelation(){
         imgFallbackForVideoErrorBgContainer.style.visibility = "visible";
         disablePointerEvents();
         window.ontouchstart = autoplay;
-        window.addEventListener("touchstart",delayWindowTouchStartCancelation);
-        window.addEventListener("touchstart",delayCancelDelayWindowTouchStartCancelation);
       }
     })
   }
@@ -268,6 +260,7 @@ function delayCancelDelayWindowTouchStartCancelation(){
 
 leftArrowSliderArea.addEventListener('click',clickOnLeftButton);
 rightArrowSliderArea.addEventListener('click',clickOnRightButton);
+
 
   
 
