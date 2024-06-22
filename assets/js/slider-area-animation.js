@@ -227,6 +227,7 @@ function autoplay(){
 }
 function cancelLowPowerModeAutoplayFunction(){
   if(sliderBackgroundVideo.paused == false){
+    rightArrowSliderArea.style.display = "none";
     autoplay = "none";
   }
 };
