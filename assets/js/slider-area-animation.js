@@ -256,7 +256,6 @@ function delayWindowTouchStartCancelation(){
     imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   }
 
-  window.addEventListener('load',cancelLowPowerModeAutoplayFunction);
   
   
 
