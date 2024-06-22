@@ -224,13 +224,19 @@ function autoplay(){
 function cancelWindowTouchStartEvent(){
   window.ontouchstart = "none";
   timeoutId1 = setTimeout(slide1,24350);
-  timeoutId2 = setTimeout(slide2,34350);
-  timeoutId3 = setTimeout(slide3,44350);
+  timeoutId2 = setTimeout(slide2,34600);
+  timeoutId3 = setTimeout(slide3,44850);
   intervalId1 = setInterval(sliderAreaBehaviorOnLoad,44850);
 
 }
 function delayWindowTouchStartCancelation(){
-  setTimeout(cancelWindowTouchStartEvent,500);
+  setTimeout(cancelWindowTouchStartEvent,250);
+}
+function cancelDelayWindowTouchStartCancelation(){
+  delayWindowTouchStartCancelation = "none";
+}
+function delayCancelDelayWindowTouchStartCancelation(){
+  setTimeout(cancelDelayWindowTouchStartCancelation,500);
 }
 
 
@@ -248,6 +254,7 @@ function delayWindowTouchStartCancelation(){
         disablePointerEvents();
         window.ontouchstart = autoplay;
         window.addEventListener("touchstart",delayWindowTouchStartCancelation);
+        window.addEventListener("touchstart",delayCancelDelayWindowTouchStartCancelation);
       }
     })
   }
