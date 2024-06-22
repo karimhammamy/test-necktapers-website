@@ -219,16 +219,14 @@ function clickOnLeftButton(){
 function autoplay(){
   imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   sliderBackgroundVideo.play();
-  /*
-  setTimeout(slide1,24850);
-  setTimeout(slide2,34850);
-  setTimeout(slide3,44850);
-  setInterval(sliderAreaBehaviorOnLoad,44850);
-  */
   setTimeout(enablePointerEvents,500);
 }
 function cancelWindowTouchStartEvent(){
   window.ontouchstart = "none";
+  setTimeout(slide1,24350);
+  setTimeout(slide2,34350);
+  setTimeout(slide3,44350);
+  setInterval(sliderAreaBehaviorOnLoad,44350);
 
 }
 function delayWindowTouchStartCancelation(){
@@ -263,8 +261,6 @@ function delayWindowTouchStartCancelation(){
 
 leftArrowSliderArea.addEventListener('click',clickOnLeftButton);
 rightArrowSliderArea.addEventListener('click',clickOnRightButton);
-
-
 
   
 
