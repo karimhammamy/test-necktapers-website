@@ -219,17 +219,20 @@ function clickOnLeftButton(){
 function autoplay(){
   imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
   sliderBackgroundVideo.play();
+}
+function restTimerAndCancelAutoPlay(){
+  console.log("autoplay should be canceled");
+  rightArrowSliderArea.style.display = "none";
   setTimeout(slide1,24850);
   setTimeout(slide2,34850);
   setTimeout(slide3,44850);
   setInterval(sliderAreaBehaviorOnLoad,44850);
-  setTimeout(enablePointerEvents,500);
+  enablePointerEvents();
+  autoplay = "none";
 }
 function cancelLowPowerModeAutoplayFunction(){
   if(sliderBackgroundVideo.paused == false){
-    console.log("autoplay should be canceled");
-    rightArrowSliderArea.style.display = "none";
-    autoplay = "none";
+    setTimeout(restTimerAndCancelAutoPlay,500);
   }
 };
   if(promise !== undefined){
