@@ -228,6 +228,7 @@ function autoplay(){
 function cancelLowPowerModeAutoplayFunction(){
   if(sliderBackgroundVideo.paused == false){
     console.log("autoplay should be canceled");
+    rightArrowSliderArea.style.display = "none";
     autoplay = "none";
   }
 };
