@@ -217,7 +217,7 @@ function clickOnLeftButton(){
   }
 };
 function autoplay(){
-  if(slideIndicator === "video"){
+  if(slideIndicator === "video" && sliderBackgroundVideo.paused == true){
     imgFallbackForVideoErrorBgContainer.style.visibility = "hidden";
     sliderBackgroundVideo.play();
     clearTimeout(timeoutId1);
